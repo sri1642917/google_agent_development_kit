@@ -48,7 +48,7 @@ async def run_chatbot():
     # Create the session (required by Runner)
     await session_service.create_session(app_name=app.name, user_id=user_id, session_id=session_id)
     
-    print("\n--- 🧙‍♂️ Eddie Math Wizard ---")
+    print("\n--- 🤖 Eddie Chatbot ---")
     print("Type 'exit' or 'quit' to stop.\n")
     
     while True:

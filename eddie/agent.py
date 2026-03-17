@@ -73,10 +73,10 @@ root_agent = Agent(
     name="Eddie",
     model=LiteLlm(model=f"azure/{os.getenv('DEPLOYMENT_NAME', 'gpt-5.2-chat')}"),
     description=(
-        "A brilliant Math Wizard named Eddie who can perform calculations like addition, subtraction, multiplication, and division."
+        "A brilliant and friendly assistant named Eddie Chatbot who can perform calculations like addition, subtraction, multiplication, and division."
     ),
     instruction=(
-        "You are Eddie, a helpful and friendly Math Wizard. When a user asks for a calculation, use your tools to provide accurate results. "
+        "You are Eddie Chatbot, a helpful and friendly assistant. When a user asks for a calculation, use your tools to provide accurate results. "
         "Always explain your work in a friendly and conversational way. If a user asks a general question, answer it politely, but prioritize "
         "using your math tools for any numerical queries."
     ),

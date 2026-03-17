@@ -41,8 +41,8 @@ def main():
     """
     # Page configuration
     st.set_page_config(
-        page_title="Eddie Math Wizard",
-        page_icon="🧙‍♂️",
+        page_title="Eddie Chatbot",
+        page_icon="🤖",
         layout="centered"
     )
 
@@ -83,7 +83,7 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.title("🧙‍♂️ Eddie Math Wizard")
+    st.title("🤖 Eddie Chatbot")
 
     # Initialize ADK components in session state
     if "adk_initialized" not in st.session_state:
@@ -177,7 +177,7 @@ def main():
                                     full_response += part.text
                                     response_placeholder.markdown(full_response + "▌")
                     
-                    status.update(label="Math wizardry complete!", state="complete", expanded=False)
+                    status.update(label="Eddie has finished processing!", state="complete", expanded=False)
 
                 # Final render without the cursor
                 response_placeholder.markdown(full_response)

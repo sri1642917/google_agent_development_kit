@@ -1,10 +1,10 @@
-# 🧙‍♂️ Eddie Math Wizard: Google Agent Development Kit (ADK) Implementation
+# 🤖 Eddie Chatbot: Google Agent Development Kit (ADK) Implementation
 
-Welcome to the **Eddie Math Wizard** project! This repository demonstrates a powerful, multi-tool AI agent built using the **Google Agent Development Kit (ADK)** and integrated with **Azure OpenAI** via LiteLLM.
+Welcome to the **Eddie Chatbot** project! This repository demonstrates a powerful, multi-tool AI agent built using the **Google Agent Development Kit (ADK)** and integrated with **Azure OpenAI** via LiteLLM.
 
 ## 🚀 Key Features
 
-- **Multi-Tool Agent**: Eddie is a "Math Wizard" capable of performing complex arithmetic operations using specialized tools (`add`, `subtract`, `multiply`, `divide`).
+- **Multi-Tool Agent**: Eddie is a helpful chatbot capable of performing arithmetic operations using specialized tools (`add`, `subtract`, `multiply`, `divide`).
 - **Azure OpenAI Integration**: Seamlessly switches from Gemini to Azure OpenAI (e.g., GPT-5.2) using the `LiteLlm` model class.
 - **Detailed Execution Logging**: 
     - Full transparency into the "Thinking" process.
