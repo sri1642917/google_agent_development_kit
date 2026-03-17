@@ -1,0 +1,7 @@
+.env
+google_adk/
+__pycache__/
+*.pyc
+.DS_Store
+debug_eddie.py
+/tmp/

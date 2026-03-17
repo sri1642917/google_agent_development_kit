@@ -1,0 +1,14 @@
+google-adk
+streamlit
+google-genai
+python-dotenv
+pydantic
+typing-extensions
+python-dateutil
+PyYAML
+click
+opentelemetry-exporter-otlp-proto-http
+google-cloud-speech
+authlib
+sqlalchemy
+litellm
