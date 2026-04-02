@@ -4,6 +4,7 @@ from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 from dotenv import load_dotenv
 import os
+import math
 
 load_dotenv()
 
@@ -15,59 +16,65 @@ if os.getenv("AZURE_OPENAI_ENDPOINT"):
 if os.getenv("OPENAI_API_VERSION"):
     os.environ["AZURE_API_VERSION"] = os.getenv("OPENAI_API_VERSION")
 
-def add(a: float, b: float) -> dict:
+def add(args: list[float]) -> dict:
     """
-    Task: Calculates the sum of two numbers.
+    Task: Calculates the sum of multiple numbers dynamically.
     
     input_params:
-        a (float): The first number.
-        b (float): The second number.
+        args (float): The numerical values to add together.
     
     returns:
         dict: A dictionary containing 'status' ('success') and the 'result'.
     """
-    return {"status": "success", "result": a + b}
+    return {"status": "success", "result": sum(args)}
 
-def subtract(a: float, b: float) -> dict:
+def subtract(args: list[float]) -> dict:
     """
-    Task: Calculates the difference between two numbers (a - b).
+    Task: Calculates the difference between multiple numbers sequentially (dynamically).
     
     input_params:
-        a (float): The number to subtract from.
-        b (float): The number to be subtracted.
+        args (float): The numerical values to subtract from the first value.
+    
+    returns:
+        dict: A dictionary containing 'status' ('success' or 'error') and the 'result'.
+    """
+    if not args:
+        return {"status": "error", "error_message": "No numbers provided."}
+    result = args[0]
+    for n in args[1:]:
+        result -= n
+    return {"status": "success", "result": result}
+
+def multiply(args: list[float]) -> dict:
+    """
+    Task: Calculates the product of multiple numbers dynamically.
+    
+    input_params:
+        args (float): The numerical values to multiply together.
     
     returns:
         dict: A dictionary containing 'status' ('success') and the 'result'.
     """
-    return {"status": "success", "result": a - b}
+    return {"status": "success", "result": math.prod(args) if args else 0}
 
-def multiply(a: float, b: float) -> dict:
+def divide(args: list[float]) -> dict:
     """
-    Task: Calculates the product of two numbers.
+    Task: Calculates the quotient of multiple numbers sequentially (dynamically).
     
     input_params:
-        a (float): The first factor.
-        b (float): The second factor.
-    
-    returns:
-        dict: A dictionary containing 'status' ('success') and the 'result'.
-    """
-    return {"status": "success", "result": a * b}
-
-def divide(a: float, b: float) -> dict:
-    """
-    Task: Calculates the quotient of two numbers (a / b).
-    
-    input_params:
-        a (float): The dividend.
-        b (float): The divisor.
+        args (float): The numerical values. The first is divided by subsequent values.
     
     returns:
         dict: A dictionary containing 'status' ('success' or 'error') and the 'result' or 'error_message'.
     """
-    if b == 0:
-        return {"status": "error", "error_message": "Division by zero is not allowed."}
-    return {"status": "success", "result": a / b}
+    if not args:
+        return {"status": "error", "error_message": "No numbers provided."}
+    result = args[0]
+    for n in args[1:]:
+        if n == 0:
+            return {"status": "error", "error_message": "Division by zero is not allowed."}
+        result /= n
+    return {"status": "success", "result": result}
 
 root_agent = Agent(
     name="Eddie",
